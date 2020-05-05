@@ -4,6 +4,8 @@ public class UserDetails {
 
     private String name, email, username, password;
 
+    //Getter and Setter of EditText values
+
     public String getName() {
         return name;
     }

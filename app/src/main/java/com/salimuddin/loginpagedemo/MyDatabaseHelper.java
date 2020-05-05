@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
+    //Declare All necessary String, names, etc
 
     private static final String DATABASE_NAME = "Userdetails.db";
     private static final String TABLE_NAME = "User_details";
@@ -28,12 +29,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
 
     public MyDatabaseHelper(@Nullable Context context) {
+
+        //Passing contex, database name, version to super method
         super(context, DATABASE_NAME, null, VERSION_NUMBER);
         this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        //Creating Database
 
         try {
             Toast.makeText(context, "DATABASE CREATED", Toast.LENGTH_SHORT).show();
@@ -48,6 +53,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+        //Update Database
+
         try {
             Toast.makeText(context, "DATABASE UPDATED", Toast.LENGTH_SHORT).show();
             db.execSQL(DROP_TABLE);
@@ -61,6 +68,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public long insetData(UserDetails userDetails){
 
+        //insertData method
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -76,6 +84,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean findPassword(String unam, String pass){
+
+        //findPassword method
 
         SQLiteDatabase db = this.getWritableDatabase();
 
